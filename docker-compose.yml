@@ -1,0 +1,15 @@
+version: "2"
+services:
+  app:
+    image: app
+    restart: always
+    ports:
+      - "8000:8000"
+    links:
+      - mongodb
+  mongodb:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
